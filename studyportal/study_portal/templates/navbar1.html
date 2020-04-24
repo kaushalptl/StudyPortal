@@ -1,0 +1,62 @@
+<div class="bg-top navbar-light">
+      <div class="container-fluid">
+        <div class="row no-gutters d-flex align-items-center align-items-stretch">
+          <div class="col-md-4 d-flex align-items-center py-4">
+            <a class="navbar-brand" href="index.html">Learning<span>Turtle</span></a>
+          </div>
+          <div class="col-lg-8 d-block">
+            <div class="row d-flex">
+              <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                <div class="icon d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                <div class="text">
+                  <span>Email</span>
+                  <span>LearningTurtle@email.com</span>
+                </div>
+              </div>
+              <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                <div class="icon d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                <div class="text">
+                  <span>Call</span>
+                  <span>Call Us: +91 9409591958</span>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container d-flex align-items-center px-4">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="mydiv" style="margin-left: 30%;"id="ftco-nav">
+          <ul class="navbar-nav mr-auto">
+           
+             
+            <li class="nav-item "><a href="/study_portal/" class="nav-link pl-0">Home</a></li>
+            <li class="nav-item"><a href="/study_portal/tutorial/{{c_id}}" class="nav-link">Tutorial</a></li>
+            <li class="nav-item"><a href="/study_portal/video" class="nav-link">Video</a></li>
+            <li class="nav-item"><a href="/study_portal/material" class="nav-link">Material</a></li>
+
+            <li class="nav-item"><a href="/study_portal/question" class="nav-link">Query</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <script>
+      var header = document.getElementById("myDIV");
+      var btns = header.getElementsByClassName("nav-link");
+      for (var i = 0; i < btns.length; i++)
+       {
+        btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+       }
+      
+    </script>

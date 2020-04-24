@@ -1,0 +1,31 @@
+{% extends 'basic.html' %}
+{% block body %}
+{% load static %}
+{% include 'navbar.html' %}
+
+  <div class="row mt-5">
+    <div class="col-md-3 col-sm-12"></div>
+    <div class="col-md-6 col-sm-12 loginbox ml-3 mr-3">
+      <h1 class="text-center mb-3">Login</h1>
+      <form action="/study_portal/loginhandle" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1"><h5>Email address</h5></label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"><h5>Password</h5></label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+        </div>
+      
+        <button type="submit " class="btn btn-primary mb-3">Submit</button>
+        <a href="signup" class="ml-5 pb-1">Don't Have account?</a>
+      </form>
+
+    </div>
+    <div class="col-md-3 col-sm-12"></div>
+  </div>
+   
+    <script type="text/javascript" src="{% static 'js/main1.js' %}"></script> 
+
+{% endblock %}

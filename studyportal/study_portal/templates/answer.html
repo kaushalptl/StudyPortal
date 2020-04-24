@@ -1,0 +1,22 @@
+{% extends 'basic.html' %}
+{% block body %}
+
+{% load static%}
+{% include 'navbar1.html' %}
+<div class="container mt-5">
+{% for q in que|slice:":1" %} 
+<h3 class="shadow-non p-1 rounded mt-2" style="font-color: orange; background-color: #E1E1E1;"><small> Que-{{q.question}} </small></h3>
+{% endfor %}
+{% for answ in ans %}
+<h4><small> -{{answ.answer}} </small></h4>
+{% endfor %}
+<br>
+	<form action="" method="post">
+		<label><h3>Add Answer</h3></label>
+        <br>
+          {% csrf_token %}
+		<input type="text" class=" form-control mb-3" id="addanswer" name="answer" size="40" placeholder="Write your Answer">
+		<input type="submit" class="btn btn-primary mb-3" value="submit" name="submit">
+	</form>
+ </div>
+{% endblock %}

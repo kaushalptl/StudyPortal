@@ -1,0 +1,27 @@
+{% extends 'basic.html' %}
+{% block body %}
+
+{% load static %}
+{% include 'navbar1.html' %}
+
+<div class="container mt-5">
+	<form action="/study_portal/question" method="POST">
+		{% csrf_token %}
+		<label><h3>Add Question</h3></label>
+        <br>
+		<input type="text" class="mb-3 form-control" id="question" name="question" size="40" placeholder="Write your Question">
+		<input type="submit" class="btn btn-primary mb-3 " value="submit" name="submit">
+	</form>
+<h1 class="mb-3">Questions List	</h1>
+{% for ques in que %}
+    <h3 class="shadow-non p-1 rounded mt-2" style="font-color: orange; background-color: #E1E1E1;"> <small >  <a  href="/study_portal/answer/{{ques.que_id}}/">Que - {{ques.question}}</a></small> </h3>
+    <!-- {% for answ in ans|slice:":2" %}
+      <h4><small>- {{answ.answer}} </small></h4>
+
+    {% endfor %} -->
+    <a href="/study_portal/answer/{{ques.que_id}}/">View answer</a>
+    <br>
+{% endfor %}
+<br>
+ </div>
+{% endblock %}

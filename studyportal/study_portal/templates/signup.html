@@ -1,0 +1,123 @@
+{% extends 'basic.html' %}
+{% block body %}
+{% load static %}
+{% include 'navbar.html' %}
+
+<div class="row mt-3 imgop">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+      <h1 class="text-center">SignUp</h1>
+        <form action="/study_portal/signuphandle" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="text" required name="name" class="form-control" id="exampleInputEmail1"
+                placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" required name="email" class="form-control" id="exampleInputEmail1"
+                placeholder="Enter Email" aria-describedby="emailHelp">
+  
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Contact No.</label>
+              <input type="text" required name="contact" pattern="[0-9]{10}" class="form-control" id="exampleInputEmail1"
+                placeholder="Enter Contact" aria-describedby="emailHelp">
+  
+            </div>
+  
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" id="pwd1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+               name="password"  placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+              <div class="form-group">
+             
+              <input type="checkbox" id="chk" onclick="showpwd()">
+              <label for="exampleInputPassword1">Show Password</label>
+            </div>
+              <p class="mt-1" id="msg" >* Password must contain at least one number , one
+                uppercase and lowercase letter,
+                and at least 8 or more characters</p>
+            </div>
+  
+  
+            <div class="form-group">
+              <label for="exampleInputPassword1">Confirm Password</label>
+              <input type="password" id="cpwd"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="cpassword"
+                placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <p id="cpwd" class="mt-1" style="display:block;">*Password Must be same</p>
+            <div class="form-group">
+             
+              <input type="checkbox" id="chk" onclick="showcpwd()">
+              <label for="exampleInputPassword1">Show Password</label>
+            </div>
+            <button type="submit" onclick="return validate()" class="btn btn-primary mb-5">SignUp</button>
+          </form>
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+</div>
+ <!-- <script type="text/javascript" src="{% static 'js/main1.js' %}"></script>
+ -->
+ <script>
+   function showpwd()
+   {
+    var x = document.getElementById('pwd1')
+
+    if(x.type == "password")
+    {
+      x.type = "text";
+    }
+    else {
+    x.type = "password";
+   }
+ }
+
+ function showcpwd()
+   {
+    var y = document.getElementById('cpwd')
+
+    if(y.type == "password")
+    {
+      y.type = "text";
+    }
+    else {
+    y.type = "password";
+   }
+ }
+
+  var pwd = document.getElementById("pwd1");
+  var cpwd = document.getElementById("cpwd");
+  var message = document.getElementById("pwd");
+
+  pwd.onfocus = function () {
+    document.getElementById("msg").style.display = "block";
+  }
+
+  pwd.onblur = function () {
+    document.getElementById("msg").style.display = "none";
+  }
+
+    function validate(){
+       var pwd = document.getElementById("pwd1").value;
+       var cpwd = document.getElementById("cpwd").value;
+      if (pwd != cpwd) {
+         alert("Passwords do not match.");
+            return false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+
+  
+ </script>
+{% endblock %}
